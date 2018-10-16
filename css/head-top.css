@@ -1,0 +1,143 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+a{
+	text-decoration: none;
+}
+li{
+	list-style: none;
+}
+.head-top{
+	width: 1190px;
+	height: 34px;
+	line-height: 34px;
+	margin: 0 auto;
+	font-family: Arial,"宋体";
+	font-size: 12px;
+	color: #5a5a5a;
+}
+.head-top a{
+	color: #3f3f3f;
+}
+.head-top a:hover{
+	text-decoration: underline;
+}
+.head-top-left{
+	float: left;
+}
+.head-top-right{
+	float: right;
+}
+.mine-help li{
+	float: left;
+	padding-right: 5px;
+}
+.mine-help li a{
+	padding-right: 5px;
+}
+.head-botton{
+	width: 100%;
+	height: 74px;
+	
+}
+.head-botton-inner{
+	width: 1190px;
+	height: 74px;
+	/*line-height: 74px;*/
+	margin: 0 auto;
+	background: #e34551;
+}
+.head-botton-inner-left{
+	float: left;
+}
+.head-botton-inner-right{
+	float: right;
+}
+.nav-bar,.logo{
+	float: left;
+}
+.logo{
+	width: 180px;
+	height: 74px;
+	background: url(../img/logo2014.png);
+	margin-left: 20px;
+}
+.nav-bar{
+	margin-left: 15px;
+}
+.nav-bar>ul:first-child>li{
+	float: left;
+	width: 120px;
+	text-align: center;
+	height: 74px;
+	line-height: 74px;
+	position: relative;
+}
+.nav-bar>ul>li>a{
+	color: #FFFFFF;
+	font-size: 20px;
+	width: 100%;
+	height: 100%;
+}
+.nav-bar>li>a.huzhou {
+	font-size: 16px;
+}
+.row{
+	width: 0;
+	height: 0;
+	border: 4px solid transparent;
+	border-top-color:#FFFFFF;
+	display: inline-block;
+	margin-left: 5px;
+}
+.index{
+	background: #bc353f;
+}
+.index:hover{
+	background: #cf3d48;
+}
+.head-botton-inner-right{
+	float: right;
+	width: 208px;
+	height: 34px;
+	background: #FFFFFF;
+	margin-top: 20px;
+	position: relative;
+	right: 20px;
+}
+.head-botton-inner-right input{
+	outline: none;
+	border: none;
+	height: 34px;
+	line-height: 34px;
+	width: 80%;
+	padding-left: 5px;
+}
+.sertch-img{
+	width: 30px;
+	height: 34px;
+	background: url(../img/icon8.png) left 0 no-repeat;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+/*侧边栏*/
+.nav-side{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 210px;
+	height: 100%;
+	background: red;
+}
+div.logo:hover{
+	transform: scale(1.5);
+	
+}
+/*.logo:hover{
+	transition: 2s;
+}*/
+.logo{
+	transition: 2s;
+}

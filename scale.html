@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.container{
+				width: 300px;
+				height: 300px;
+				margin-top: 100px;
+				margin-left: 100px;
+				background-color: #00ff00;
+				position: relative;
+			}
+			.img{
+				width: 100%;
+				height: 100%;
+			}
+			.img img{
+				width: 100%;
+				height: 100%;
+			}
+			.hover{
+				position: absolute;
+				left: 0;
+				top:0;
+				width: 50%;
+				height: 50%;
+				opacity: 0.6;
+				display: none;
+			}
+			.big_img{
+				position: absolute;
+				top: 0;
+				left: 100%;
+				width: 100%;
+				height: 100%;
+				margin-left: 10px;
+				overflow: hidden;
+				display: none;
+			}
+			.box{
+				position: absolute;
+				width: 200%;
+				height: 200%;
+				
+			}
+			.box img{
+				width: 100%;
+				height: 100%;
+			}
+			.img:hover .hover{
+				display: block;
+			}
+			.img:hover + .big_img{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="img">
+				<img src="img/7348fc6909b828f56fb5d062e3fb6f3f.jpg"/>
+				<div class="hover"></div>
+			</div>
+			<div class="big_img">
+				<div class="box">
+					<img src="img/4f13a9b4b6e215f60894f214eed389dd.jpg" alt="" />
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery-2.1.4.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var wrap=$(".container"),
+				hover=$(".hover"),
+				big=$(".box");
+				var wrapWidth,wrapHeight,
+				hoverHeight,hoverWidth,
+				bigWidth,bigHeight;
+				wrap.on("mousemove",function(e){
+					wrapWidth || (wrapWidth =wrap.width());
+					wrapHeight || (wrapHeight =wrap.height());
+					
+					hoverHeight || (hoverHeight =hover.height());
+					hoverWidth || (hoverWidth =hover.width());
+					
+					bigWidth || (bigWidth =big.width());
+					bigHeight || (bigHeight =big.height());
+					
+					var offset = $(this).offset();
+					var x= e.pageX-offset.left;
+					var y=e.pageY- offset.top;
+					var left
+					var left = x-parseInt(hoverWidth / 2 ,10);
+					var top = y-parseInt(hoverHeight / 2,10);
+					if(left<0){
+						left=0;
+					}
+					if(top<0){
+						top=0;
+					}
+					if(left + hoverWidth > wrapWidth){
+						left = wrapWidth - hoverWidth;
+					}
+					if(top + hoverHeight > wrapHeight){
+						top = wrapHeight - hoverHeight;
+					}
+					hover.css({
+						"left":left + "px",
+						"top":top + "px"
+					})
+					var bigX = (left / (wrapWidth - hoverWidth))*(bigWidth-wrapWidth);
+					var bigY = (top / (wrapHeight - hoverHeight))*(bigHeight-wrapHeight);
+					
+					big.css({
+						"left":(bigX * -1) + "px",
+						"top":(bigY * -1) + "px",
+					})
+				})
+			})
+			
+			console.log((function (a,b){
+				return a==b?a:b
+			}(1,2)))
+		</script>
+	</body>
+</html>

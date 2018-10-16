@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/head-top.css" rel="stylesheet" />
+	</head>
+	<style type="text/css">
+		
+	</style>
+	<body>
+		<div class="promise" >
+			<div class="login" style="margin: 0 auto;text-align: center;">
+				图像:<input type="file" id="fl" value="" /><br />
+				用户:<input type="text" name="" id="user" value="" /><br />
+				密码:<input type="text" name="" id="pwd" value="" /><br />
+				<button class="login">登录</button>
+			</div>
+			<div class="img">
+				<img src="" id="getUrl"/>
+			</div>
+		</div>
+		<script type="text/javascript">
+//			new Promise((resove,reject)=>{
+//				resove("123");
+//			}).then((num)=>{
+//				alert("成功"+num)
+//			},()=>{
+//				alert("失败")
+//			})
+			document.querySelector(".login")["onclick"]=x=>{
+//				console.log(fl.files[0]);
+				var fd = new FormData();
+				fd.append('pic',fl.files[0])
+//				console.log(`http://localhost:2133/login?user=${user.vale}&pwd=${pwd.value}`)
+				fetch(`http://localhost:2133/addPic`,{
+					method:'POST',
+					body:fd
+				}).then((res)=>{
+					res.json(()=>{
+						
+					}).then((res)=>{
+//						console.log(res)
+//						if(res.ok){
+//							document.body.style.background='red'
+//						}else{
+//							document.body.style.background='blue'
+//						}
+						var {ok} = res;
+						if(ok){
+							let {dataUrl} = res;
+//							console.log(dataUrl);
+							getUrl.src=dataUrl;
+						}else{
+							alert("失败咯")
+						}
+					},()=>{
+						console.log("服务器错误");
+					})
+				})
+			}
+		</script>
+	</body>
+
+</html>
